@@ -1,0 +1,100 @@
+fragment postData on Post {
+  id
+  title
+  text
+  tags
+  datePublished
+  category {
+    id
+    name
+  }
+  author {
+    username
+    displayName
+    avatarImg
+  }
+  commentsAggregate {
+    count
+  }
+}
+
+query allPosts {
+  queryPost(order: { desc: datePublished }) {
+    ...postData
+  }
+}
+
+query getPost($id: ID!) {
+  getPost(id: $id) {
+    id
+    title
+    text
+    tags
+    datePublished
+    category {
+      id
+      name
+    }
+    author {
+      username
+      displayName
+      avatarImg
+    }
+    comments {
+      id
+      text
+      commentsOn {
+        comments {
+          id
+          text
+          author {
+            username
+            displayName
+            avatarImg
+          }
+        }
+      }
+      author {
+        username
+        displayName
+        avatarImg
+      }
+    }
+  }
+}
+
+query getUser($username: String!) {
+  getUser(username: $username) {
+    username
+    displayName
+    avatarImg
+  }
+}
+
+query categories {
+  queryCategory {
+    id
+    name
+  }
+}
+
+mutation addPost($post: AddPostInput!) {
+  addPost(input: [$post]) {
+    post {
+      ...postData
+    }
+  }
+}
+
+mutation addComment($comment: AddCommentInput!) {
+  addComment(input: [$comment]) {
+    comment {
+      id
+      text
+      author {
+        username
+        displayName
+      }
+    }
+  }
+}
