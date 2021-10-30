@@ -18,7 +18,6 @@ export function App() {
             </Switch>
           </BrowserRouter>
         </div>
-     
     </>
   );
 }
