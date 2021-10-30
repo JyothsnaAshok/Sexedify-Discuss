@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import {
   Header,
   Label,
@@ -22,6 +22,7 @@ export function PostFeed() {
       </Container>
     )
   }
+  
 
   const items = data?.queryPost?.map((post) => {
     const replies = post?.commentsAggregate?.count

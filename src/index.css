@@ -35,7 +35,7 @@ code {
 }
 
 .ui.floated.header.left {
-  padding-left: 7rem;
+  padding-left: 5rem;
   transform: translate(0px, 0px);
 }
 
@@ -55,4 +55,12 @@ code {
 
 .ui.mini.image.lightning-logo {
   height: 25px;
+}
+
+.form-field {
+  margin-top: 50px;
+}
+
+.answer-button {
+  margin-top: 20px;
 }

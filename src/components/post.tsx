@@ -13,22 +13,27 @@ import {
   Button
 } from "semantic-ui-react"
 
-import { useGetPostQuery , useAddCommentMutation, namedOperations} from "./types/operations"
+import { useGetPostQuery , useAddCommentMutation, namedOperations, useGetUserQuery} from "./types/operations"
 import { DateTime } from "luxon"
 import { avatar } from "./avatar"
+import { useAuth0 } from "@auth0/auth0-react"
 
 interface PostParams {
   id: string
 }
 
+
+
 export function Post() {
- 
+  const [createPost, setCreatePost] = useState(false)
   const { id } = useParams<PostParams>()
 
 
  const [addCommentMutation] = useAddCommentMutation({
     refetchQueries: [namedOperations.Query.getPost],
   });
+
+   
 
   const [commentText, setCommentText] = useState("")
 
@@ -38,7 +43,7 @@ export function Post() {
         comment: {
           text: commentText,
           commentsOn: { id: id },
-          author: { username: "TestUser" },
+          author: { username: user?.email },
         },
       },
       update(cache, { data }) {
@@ -51,6 +56,9 @@ export function Post() {
   const { data, loading, error } = useGetPostQuery({
     variables: { id: id },
   })
+ 
+  const { logout,user,isAuthenticated} = useAuth0();
+
   if (loading) return <Loader active />
   if (error) {
     return (
@@ -126,11 +134,6 @@ export function Post() {
           })}
       </div>
       <Header as="h4" image>
-        <Image
-          src={avatar(data.getPost?.author.avatarImg)}
-          rounded
-          size="mini"
-        />
         <Header.Content>
           {data.getPost?.author.username}
           <Header.Subheader>{dateStr}</Header.Subheader>
@@ -142,7 +145,7 @@ export function Post() {
         </Header>
       {comments}
       <div>
-          <div className="flex mt-12">
+          <div className="mt-12 form-field">
             <span className="ml-3">
               <Form className="comment-box">
                 <TextArea
@@ -155,7 +158,7 @@ export function Post() {
                   }}
                 />
               </Form>
-              <div className="mt-3">
+              <div className="mt-3 answer-button">
                 <Button className="dgraph-btn" onClick={addComment}>
                   Post Answer
                 </Button>

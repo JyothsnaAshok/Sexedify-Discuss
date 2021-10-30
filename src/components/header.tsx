@@ -31,7 +31,7 @@ export function AppHeader() {
   const {
     // loginWithRedirect,
     logout,
-    // user,
+    user,
     isAuthenticated,
     // getIdTokenClaims,
   } = useAuth0();
@@ -60,7 +60,6 @@ export function AppHeader() {
 
   ) : (
     <AuthButton />
-
   )
   
 
@@ -93,7 +92,7 @@ export function AppHeader() {
       title: title,
       tags: tags,
       category: { id: category },
-      author: { username: "TestUser" },
+      author: { username: user?.email},
       datePublished: new Date().toISOString(),
       comments: [],
     }
