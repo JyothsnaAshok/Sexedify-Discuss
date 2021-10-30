@@ -4,7 +4,6 @@ import {
   Container,
   Header,
   Loader,
-  Image,
   Label,
   Comment,
   Form,
@@ -13,7 +12,7 @@ import {
   Button
 } from "semantic-ui-react"
 
-import { useGetPostQuery , useAddCommentMutation, namedOperations, useGetUserQuery} from "./types/operations"
+import { useGetPostQuery , useAddCommentMutation, namedOperations} from "./types/operations"
 import { DateTime } from "luxon"
 import { avatar } from "./avatar"
 import { useAuth0 } from "@auth0/auth0-react"
@@ -25,7 +24,7 @@ interface PostParams {
 
 
 export function Post() {
-  const [createPost, setCreatePost] = useState(false)
+
   const { id } = useParams<PostParams>()
 
 
@@ -57,7 +56,7 @@ export function Post() {
     variables: { id: id },
   })
  
-  const { logout,user,isAuthenticated} = useAuth0();
+  const { user,isAuthenticated} = useAuth0();
 
   if (loading) return <Loader active />
   if (error) {
@@ -141,9 +140,11 @@ export function Post() {
       </Header>
       {paras}
       <Header as="h3">
-        Answers
+        Answers 
         </Header>
+        
       {comments}
+      {isAuthenticated ? (
       <div>
           <div className="mt-12 form-field">
             <span className="ml-3">
@@ -165,7 +166,31 @@ export function Post() {
               </div>
             </span>
           </div>
-        </div>
+        </div>) : (<div>
+          <div className="mt-12 form-field">
+            <span className="ml-3">
+              <Form className="comment-box">
+                <TextArea
+                  disabled
+                  placeholder={`Login to answer`}
+                  onChange={(
+                    event: FormEvent<HTMLTextAreaElement>,
+                    data: TextAreaProps
+                  ) => {
+                    setCommentText(data.value?.toString() ?? "");
+                  }}
+                />
+              </Form>
+              <div className="mt-3 answer-button">
+                <Button className="dgraph-btn disabled" >
+                  Login to Answer
+                </Button>
+              </div>
+            </span>
+          </div>
+        </div>)
+
+        }
       
                 
       
