@@ -2,8 +2,8 @@ body {
   padding-bottom: 3px;
   background-clip: content-box;
   box-shadow: inset 0 0 0 10px #eaeaea;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,7 +12,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -29,14 +29,14 @@ code {
   padding-top: 0px;
 }
 
-.ui.floated.header.header-seg-right {
-  padding-right: 7rem;
-  transform: translate(-10px, 50px);
+.ui.floated.header.right {
+  padding-right: 8rem;
+  transform: translate(0px, 20px);
 }
 
-.ui.floated.header.header-seg-left {
+.ui.floated.header.left {
   padding-left: 7rem;
-  transform: translate(-23px, 40px);
+  transform: translate(0px, 0px);
 }
 
 .ui.mini.image.avatar-align {

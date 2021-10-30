@@ -165,11 +165,12 @@ export function AppHeader() {
   return (
     <>
     {showCreatePost}
+    
       <div className="ui clearing segment">
-        <h3 className="ui right floated header header-seg-right">
+        <h3 className="ui right floated header right">
           <span>{userOptions}</span>
         </h3>
-        <h3 className="ui left floated header header-seg-left">
+        <h3 className="ui left floated header left">
           <Link to="/">
             <div className="flex">
               <div>
@@ -180,6 +181,7 @@ export function AppHeader() {
           </Link>
         </h3>
       </div>
+      
     </>
   )
 }
