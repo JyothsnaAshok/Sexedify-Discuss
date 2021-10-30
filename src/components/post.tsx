@@ -13,7 +13,7 @@ import {
   Button
 } from "semantic-ui-react"
 
-import { useGetPostQuery , useAddCommentMutation, GetPostDocument, AllPostsQuery, GetPostQuery, namedOperations} from "./types/operations"
+import { useGetPostQuery , useAddCommentMutation, namedOperations} from "./types/operations"
 import { DateTime } from "luxon"
 import { avatar } from "./avatar"
 
@@ -22,7 +22,7 @@ interface PostParams {
 }
 
 export function Post() {
-  const [createPost, setCreatePost] = useState(false)
+ 
   const { id } = useParams<PostParams>()
 
 

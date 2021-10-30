@@ -30,7 +30,7 @@ const AuthorizedApolloProvider = ( {children } : {children:any}) => {
       return headers;
     }
 
-    const token = await getIdTokenClaims();
+   
 
     return {
       headers: {
@@ -48,8 +48,7 @@ const AuthorizedApolloProvider = ( {children } : {children:any}) => {
   return <ApolloProvider client={apolloClient}>{children}</ApolloProvider>
 }
 
-const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
 
 
 ReactDOM.render(

@@ -1,7 +1,6 @@
-import { Link, BrowserRouter } from "react-router-dom"
+import { Link } from "react-router-dom"
 import React, { useState } from "react"
 import {
-  Image,
   Modal,
   Form,
   Button,
@@ -21,22 +20,21 @@ import { useAuth0 } from "@auth0/auth0-react"
 
 
 export function AppHeader() {
-  const [searchText, setSearchText] = useState("")
+  
   const [createPost, setCreatePost] = useState(false)
   const [title, setTitle] = useState("")
   const [category, setCategory]: any = useState("")
   const [text, setText]: any = useState("")
   const [tags, setTags]: any = useState("")
-  const [searchStatus, setSearchStatus] = useState(false)
-  const categoriesSet: any = [];
+  
 
   
   const {
-    loginWithRedirect,
+    // loginWithRedirect,
     logout,
-    user,
+    // user,
     isAuthenticated,
-    getIdTokenClaims,
+    // getIdTokenClaims,
   } = useAuth0();
 
   const {
@@ -67,7 +65,7 @@ export function AppHeader() {
     <AuthButton />
 
   )
-  const addPostButton = () => {
+  {/** const addPostButton = () => {
     if (categoriesLoading) {
       return <Loader active />
     } else if (categoriesError) {
@@ -82,7 +80,7 @@ export function AppHeader() {
         </div>
       )
     }
-  }
+  }**/}
 
   const categoriesOptions = categoriesData?.queryCategory?.map((category) => {
     return { key: category?.id, text: category?.name, value: category?.id }

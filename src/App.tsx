@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import { Image } from "semantic-ui-react";
 import { Home } from "./components/home";
 import { Post } from "./components/post";
 import { BrowserRouter, Switch, Route } from "react-router-dom";

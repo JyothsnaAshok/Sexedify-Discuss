@@ -24,7 +24,6 @@ export function PostFeed() {
   }
 
   const items = data?.queryPost?.map((post) => {
-    const likes = Math.floor(Math.random() * 10)
     const replies = post?.commentsAggregate?.count
     const tagsArray = post?.tags?.trim().split(/\s+/) || []
 
