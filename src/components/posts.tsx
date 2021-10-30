@@ -53,7 +53,7 @@ export function PostFeed() {
           {tagsArray.map((tag) => {
             if (tag !== "") {
               return (
-                <Label as="a" basic color="grey" key={tag}>
+                <Label as="a" color="yellow" key={tag} tag>
                   {tag}
                 </Label>
               )
@@ -75,7 +75,7 @@ export function PostFeed() {
 
   return (
     <>
-      <Table basic="very">
+      <Table color="pink">
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Posts</Table.HeaderCell>
