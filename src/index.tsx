@@ -18,7 +18,7 @@ const GRAPHQL_ENDPOINT = "https://green-feather-230024.ap-south-1.aws.cloud.dgra
 
 const AuthorizedApolloProvider = ( {children } : {children:any}) => {
 
-  const { isAuthenticated, getIdTokenClaims } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   const httpLink = createHttpLink({
     uri: GRAPHQL_ENDPOINT,

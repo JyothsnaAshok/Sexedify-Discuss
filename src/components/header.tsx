@@ -5,7 +5,6 @@ import {
   Form,
   Button,
   Dropdown,
-  Loader,
   TextArea,
 } from "semantic-ui-react"
 import {
@@ -39,8 +38,6 @@ export function AppHeader() {
 
   const {
     data: categoriesData,
-    loading: categoriesLoading,
-    error: categoriesError,
   } = useCategoriesQuery()
 
   const userOptions = isAuthenticated ? (
@@ -65,22 +62,7 @@ export function AppHeader() {
     <AuthButton />
 
   )
-  {/** const addPostButton = () => {
-    if (categoriesLoading) {
-      return <Loader active />
-    } else if (categoriesError) {
-      return <div>`Error! ${categoriesError.message}`</div>
-    } else {
-      return (
-        <div>
-        <Button className="dgraph-btn mr-1" onClick={() => setCreatePost(true)}>
-          Create Post
-        </Button>
-        <AuthButton />
-        </div>
-      )
-    }
-  }**/}
+  
 
   const categoriesOptions = categoriesData?.queryCategory?.map((category) => {
     return { key: category?.id, text: category?.name, value: category?.id }
