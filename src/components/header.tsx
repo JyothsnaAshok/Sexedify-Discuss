@@ -174,7 +174,7 @@ export function AppHeader() {
             <div className="flex">
               <div>
                 <p className="header-text">SexEdify</p>
-                <p className="t-size">Your Forum for all things Sex-Ed!</p>
+                <p className="t-size">Your forum for all things Sex-Ed!</p>
               </div>
             </div>
           </Link>
